@@ -10,9 +10,9 @@ For the localizer to work, the JSON resource file must be in the following forma
 [
    {
       "Key": "Name",
-      "LocalizedValues":{
+      "LocalizedValues":[
          {"en": "Name"}
-      }
+      ]
    }
 ]
 ```
