@@ -54,6 +54,36 @@ var withExternalSources = new JsonLocalizer(additionalPaths: additional);
 
 This will tell the localizer to find the required folder in the passed assembly.
 
+## Using
+
+```csharp
+// use it in DI as singleton
+public void ConfigureServices(IServiceCollection services)
+{
+   // Other configurations ...
+   services.AddSingleton<JsonLocalizer>();
+}
+```
+
+To use in the application
+
+```csharp
+
+private readonly JsonLocalizer _localizer;
+
+public class MySampleClass(JsonLocalizer localizer)
+{
+   _localizer = localizer;
+}
+
+public string GetLocalizedMessage()
+{
+   return _localizer["MyAppResource:MyKey"];
+}
+
+
+```
+
 ## Next steps
 
 Better configuration for Dependency Injection using Factory.
