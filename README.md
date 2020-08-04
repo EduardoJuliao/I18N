@@ -11,7 +11,15 @@ For the localizer to work, the JSON resource file must be in the following forma
    {
       "Key": "Name",
       "LocalizedValues":[
-         {"en": "Name"}
+         {"en": "Name"},
+         {"pt": "Nome"}
+      ]
+   },
+   {
+      "Key": "Age",
+      "LocalizedValues":[
+         {"en": "Age"},
+         {"pt": "Idade"}
       ]
    }
 ]
@@ -36,7 +44,8 @@ To do this, you need to pass a type and the root folder where the resources are 
 ```csharp
 var additional = new Dictionary<Type, string>
                   {
-                     { typeof(MycLASS), "BrokenResources" }
+                     { typeof(MyClass), "My Resource Folder" },
+                     { typeof(MyAnotherClass), "My Resource Folder/Even Handles sub folders" }
                   };
 
 var withExternalSources = new JsonLocalizer(additionalPaths: additional);
