@@ -81,8 +81,46 @@ public string GetLocalizedMessage()
    return _localizer["MyAppResource:MyKey"];
 }
 
+```
+
+### Breakdown
+
+To find the localized message, the `JsonLocalizer` uses 3 parameters, 2 mandatory and 1 optional, 
+in the following format:
+
+```csharp
+"ResourceFileName:Key:Language"
+```
+
+#### Resource File Name
+
+The resource file name MUST be unique, if the system finds a duplicate, will throw an exception.
+Also, the name is everything before the first `'.'`.
+
+Eg.:
+
+```csharp
+
+| File Name                  | Resource Name |
+| -------------------------- | ------------- |
+| MyResource.json            | MyResource    |
+| MyApp.Resource.json        | MyApp         |
+| MyApp-Errors.Resource.json | MyApp-Errors  |
+| MyApp.Errors.Resource.json | MyApp         |
 
 ```
+
+#### Key
+
+The second parameter is the key. With it, the JsonLocalizer will try to find it inside the collection.
+
+#### Culture
+
+The last parameter is the culture, if not informed, will use the `CultureInfo.CurrentCulture` value.
+
+#### Things to consider
+
+At the moment, the `':'` char cannot be used in the file name, key and localized values key, as it relay on it to identify what is what.
 
 ## Next steps
 
