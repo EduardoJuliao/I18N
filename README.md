@@ -7,22 +7,19 @@ This packages purpose is to handle I18N with json files.
 For the localizer to work, the JSON resource file must be in the following format:
 
 ```json
-[
-   {
-      "Key": "Name",
-      "LocalizedValues":[
-         {"en": "Name"},
-         {"pt": "Nome"}
-      ]
-   },
-   {
-      "Key": "Age",
-      "LocalizedValues":[
-         {"en": "Age"},
-         {"pt": "Idade"}
-      ]
+[{
+   "Key": "Name",
+   "LocalizedValues": {
+      "en-US": "Name",
+      "pt": "Nome"
    }
-]
+}, {
+   "Key": "Age",
+   "LocalizedValues": {
+      "en-US": "Age",
+      "pt": "Idade"
+   }
+}]
 ```
 
 Which must consist in one or more unique keys and its localized values.
